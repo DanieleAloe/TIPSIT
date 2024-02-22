@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button Click Counter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    #output {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Button Click Counter</h1>
+
+<button id="button1" onclick="updateNumber(1)">Button 1</button>
+<button id="button2" onclick="updateNumber(2)">Button 2</button>
+<button id="button3" onclick="updateNumber(3)">Button 3</button>
+
+<div id="output"></div>
+
+<script>
+    let numbers = [0, 0, 0]; // Inizializzo un array per memorizzare i numeri per ogni bottone
+
+    function updateNumber(buttonIndex) {
+        let output = document.getElementById("output");
+        let currentNumber = numbers[buttonIndex - 1]; // Recupero il numero attuale per il bottone corrispondente
+
+        // Aggiorno il numero in base al pulsante cliccato
+        if (buttonIndex === 1) {
+            currentNumber += 2;
+        } else if (buttonIndex === 2) {
+            currentNumber += 3;
+        } else if (buttonIndex === 3) {
+            currentNumber += 7;
+        }
+
+        numbers[buttonIndex - 1] = currentNumber; // Aggiorno il numero nell'array
+
+        output.textContent = "Numero per Button " + buttonIndex + ": " + currentNumber;
+    }
+</script>
+
+</body>
+</html>
