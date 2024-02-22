@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcolo Area Cerchio e Quadrato</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    input {
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 16px;
+    }
+    button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    #square {
+        margin-top: 20px;
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<h1>Calcolo Area Cerchio e Quadrato</h1>
+
+<label for="raggio">Inserisci il raggio del cerchio:</label>
+<input type="number" id="raggio">
+<button onclick="calcolaArea()">Calcola Area</button>
+
+<div id="output"></div>
+
+<button id="visualizzaQuadrato" onclick="visualizzaQuadrato()">Visualizza Quadrato</button>
+<div id="square"></div>
+
+<script>
+    function calcolaArea() {
+        var raggio = parseFloat(document.getElementById("raggio").value);
+        var area = Math.PI * raggio * raggio;
+        document.getElementById("output").textContent = "L'area del cerchio è: " + area.toFixed(2);
+    }
+
+    function visualizzaQuadrato() {
+        var areaCerchio = parseFloat(document.getElementById("output").textContent.split(":")[1]);
+        var latoQuadrato = Math.sqrt(areaCerchio) * 20; // Calcolo delle dimensioni proporzionali
+        var square = document.getElementById("square");
+        square.style.width = latoQuadrato + "px";
+        square.style.height = latoQuadrato + "px";
+        square.style.backgroundColor = "#f00"; // Colore rosso per il quadrato
+        square.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
