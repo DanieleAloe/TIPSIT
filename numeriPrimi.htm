@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numeri Primi</title>
+</head>
+<body>
+
+<button onclick="trovaNumeriPrimi()">Calcola Numeri Primi</button>
+<div id="numeriPrimidiv"></div>
+
+<script>
+function trovaNumeriPrimi() {
+    var numeriPrimi = [];
+    
+    for (var i = 2; i <= 10000; i++) {
+        var isPrimo = true;
+        for (var j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j === 0) {
+                isPrimo = false;
+                break;
+            }
+        }
+        if (isPrimo) {
+            numeriPrimi.push(i);
+        }
+    }
+    
+    var numeriPrimiDiv = document.getElementById("numeriPrimidiv");
+    numeriPrimiDiv.innerHTML = numeriPrimi.join(', ');
+}
+</script>
+
+</body>
+</html>
